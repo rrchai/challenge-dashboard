@@ -1,5 +1,6 @@
 # challenge-tools
 
-- app: shiny app
-- service: synapse api service
-- rtools: data-process/plot functions
+- app: client app - ~~shiny or~~ angular
+- service: synapse api service - ~~plumber or~~ faskapi
+- rtools: data-process/plot functions - r or python
+

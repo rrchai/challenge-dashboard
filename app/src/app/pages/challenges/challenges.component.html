@@ -1,0 +1,50 @@
+<p-dataView [value]="challenges" [paginator]="true" [rows]="9" filterBy="name">
+  <ng-template pTemplate="header">
+    <div>
+      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+    </div>
+  </ng-template>
+  <ng-template let-challenge pTemplate="listItem">
+    <div class="p-col-12">
+      <div class="challenge-list-item">
+        <div class="challenge-list-detail">
+          <div class="challenge-name">{{ challenge.name }}</div>
+          <div class="challenge-description">description</div>
+          <i class="pi pi-tag challenge-tag-icon"></i
+          ><span class="challenge-tag">tag</span>
+        </div>
+        <div class="challenge-list-action">
+          <span class="challenge-blabla">blabla</span>
+          <p-button
+            icon="pi pi-table"
+            label="Submissions"
+            (onClick)="redirect(['/c', challenge.id])"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template let-challenge pTemplate="gridItem">
+    <div class="col-12 md:col-4">
+      <div class="challenge-grid-item card">
+        <div class="challenge-grid-item-top">
+          <div>
+            <i class="pi pi-tag challenge-tag-icon"></i>
+            <span class="challenge-tag">tag</span>
+          </div>
+        </div>
+        <div class="challenge-grid-item-content">
+          <div class="challenge-name">{{ challenge.name }}</div>
+          <div class="challenge-description">description</div>
+        </div>
+        <div class="challenge-grid-item-bottom">
+          <span class="challenge-blabla">blabla</span>
+          <p-button
+            icon="pi pi-table"
+            (onClick)="redirect(['/c', challenge.id])"
+          ></p-button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-dataView>

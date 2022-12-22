@@ -1,0 +1,56 @@
+<p-tabView class="views-tab">
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="pi pi-home"></i>
+      <span>Home</span>
+    </ng-template>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </p>
+  </p-tabPanel>
+  <p-tabPanel>
+    <ng-template pTemplate="header">
+      <i class="pi pi-table"></i>
+      <span>Views</span>
+    </ng-template>
+    <div>
+      <div *ngFor="let view of views; let i = index">
+        <p-radioButton
+          [inputId]="i.toString()"
+          [name]="i.toString()"
+          [value]="view.id"
+          [(ngModel)]="selectedView"
+          (onClick)="onClick($event)"
+        ></p-radioButton>
+        <label [for]="i.toString()">{{ view.name }}</label>
+      </div>
+    </div>
+    <!-- TODO: add sort/filter/search/ -->
+    <!-- TODO: add table lazy -->
+    <!-- TODO: add dropdown menu to delete submission -->
+    <p *ngIf="viewData$ | async as viewData">
+      <p-table [value]="viewData">
+        <ng-template pTemplate="header">
+          <tr>
+            <th *ngFor="let col of viewData[0] | keyvalue">
+              {{ col.key }}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+          <tr>
+            <td *ngFor="let col of viewData[0] | keyvalue">
+              {{ data[$any(col.key)] }}
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-tabPanel>
+</p-tabView>

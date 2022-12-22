@@ -1,0 +1,51 @@
+{
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      // "source.fixAll": false,
+      "source.fixAll.eslint": true
+    },
+    // "python.formatting.blackArgs": ["--line-length", "120"],
+    "python.formatting.provider": "autopep8",
+    "python.formatting.blackArgs": [],
+    "[python]": {
+      "editor.formatOnSave": true,
+      "editor.tabSize": 4
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.tabSize": 2
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[xml]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[yaml]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "terminal.integrated.showExitAlert": false,
+    "editor.inlayHints.enabled": "off",
+    "rewrap.wrappingColumn": 100,
+    "editor.rulers": [100],
+    "eslint.validate": [
+      "json"
+    ],
+  }

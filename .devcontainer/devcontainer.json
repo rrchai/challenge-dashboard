@@ -1,0 +1,50 @@
+{
+  "name": "Challenge Tools",
+  "image": "sagebionetworks/challenge-devcontainer:6c35430",
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2.0.0": {
+      "version": "20.10.21"
+    }
+  },
+
+  "settings": {},
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/vscode/.local/bin",
+  },
+  "extensions": [
+    "1000ch.svgo",
+    "Angular.ng-template",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "firsttris.vscode-jest-runner",
+    "GitHub.vscode-pull-request-github",
+    "Gruntfuggly.todo-tree",
+    "humao.rest-client",
+    "mhutchie.git-graph",
+    "ms-python.python",
+    "nrwl.angular-console",
+    "Pivotal.vscode-boot-dev-pack",
+    "ritwickdey.LiveServer",
+    "shengchen.vscode-checkstyle",
+    "stkb.rewrap",
+  ],
+
+  "forwardPorts": [
+    4200,
+    8800
+  ],
+  "portsAttributes": {
+    "4200": {
+      "label": "tools-app",
+      "onAutoForward": "silent"
+    },
+    "8800": {
+      "label": "tools-service",
+      "onAutoForward": "silent"
+    },
+  },
+	"remoteUser": "vscode",
+  "shutdownAction": "stopContainer",
+  "runArgs": ["--name", "challenge_tools_devcontainer"]
+}

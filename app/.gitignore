@@ -1,19 +1,18 @@
-# compiled output
-/**/bin
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
 /dist
 /tmp
 /out-tsc
-**/__pycache__
+/bazel-out
 
-# dependencies
+# Node
 /node_modules
-**/env
-
-# creds
-**/.synapseConfig
+npm-debug.log
+yarn-error.log
 
 # IDEs and editors
-/.idea
+.idea/
 .project
 .classpath
 .c9/
@@ -21,29 +20,23 @@
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.history/*
 
-# misc
-/.sass-cache
+# Miscellaneous
+/.angular/cache
+.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
-# System Files
+# System files
 .DS_Store
 Thumbs.db
-
-.angular
-
-# Gradle
-.gradle
-build
