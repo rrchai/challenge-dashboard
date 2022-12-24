@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Response
+from fastapi import FastAPI, Response, HTTPException
 from fastapi.responses import RedirectResponse
 import re
 
@@ -6,6 +6,7 @@ from challengeObjs import Challenge, Evaluation
 from typing import List, Union
 from utils import find_staging
 import synapseclient
+from challengeutils.utils import delete_submission
 # from starlette.responses import JSONResponse
 from starlette.middleware.cors import CORSMiddleware
 
@@ -90,3 +91,11 @@ def get_submission_view(id: str):
     view_df = syn.tableQuery(query).asDataFrame(
     )
     return Response(view_df.to_json(orient="records"), media_type="application/json")
+
+@app.delete("/submission/{id}")
+def delete_a_submission(id: str):
+    try:
+        delete_submission(syn, id)
+        return {}
+    except Exception as e:
+        raise HTTPException(status_code=404, detail=str(e))

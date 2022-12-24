@@ -4,7 +4,11 @@
     vertical-align: middle;
   }
 
-  span {
-    margin: 0 0.5rem;
+  i {
+    margin-right: 0.5rem;
   }
+}
+
+:host ::ng-deep .p-radiobutton {
+  margin-right: 8px;
 }

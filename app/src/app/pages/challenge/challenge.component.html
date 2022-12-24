@@ -26,7 +26,7 @@
           [name]="i.toString()"
           [value]="view.id"
           [(ngModel)]="selectedView"
-          (onClick)="onClick($event)"
+          (onClick)="selectTable($event)"
         ></p-radioButton>
         <label [for]="i.toString()">{{ view.name }}</label>
       </div>
@@ -35,9 +35,42 @@
     <!-- TODO: add table lazy -->
     <!-- TODO: add dropdown menu to delete submission -->
     <p *ngIf="viewData$ | async as viewData">
-      <p-table [value]="viewData">
+      <p-table
+        styleClass="p-datatable-striped"
+        [value]="viewData"
+        [(selection)]="selectedRows"
+      >
+        <ng-template pTemplate="caption">
+          <div class="flex gap-3">
+            <!-- <button
+              pButton
+              label="Clear"
+              class="p-button-outlined"
+              icon="pi pi-filter-slash"
+              (click)="clear(dt1)"
+            ></button> -->
+            <p-confirmPopup></p-confirmPopup>
+            <button
+              pButton
+              icon="pi pi-times"
+              (click)="confirmDeletion($event)"
+            ></button>
+            <button
+              pButton
+              icon="fa-brands fa-docker"
+              (click)="selectQueue($event)"
+            ></button>
+            <!-- <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+              </span> -->
+          </div>
+        </ng-template>
         <ng-template pTemplate="header">
           <tr>
+            <th>
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
             <th *ngFor="let col of viewData[0] | keyvalue">
               {{ col.key }}
             </th>
@@ -45,6 +78,9 @@
         </ng-template>
         <ng-template pTemplate="body" let-data>
           <tr>
+            <td>
+              <p-tableCheckbox [value]="data"></p-tableCheckbox>
+            </td>
             <td *ngFor="let col of viewData[0] | keyvalue">
               {{ data[$any(col.key)] }}
             </td>
